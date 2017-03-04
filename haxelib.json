@@ -8,5 +8,7 @@
     "classPath": "src",
     "releasenote": "first release",
     "contributors": [ "deep" ],
-    "dependencies": {}
+    "dependencies": {
+        "thx.core" : ""
+    }
 }
