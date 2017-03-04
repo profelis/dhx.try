@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/profelis/dhx.try.svg?branch=master)](https://travis-ci.org/profelis/dhx.try)
 
+Haxelib: http://lib.haxe.org/p/dhx.try/
+
 Scala API: http://www.scala-lang.org/api/current/scala/util/Try.html
 
 Posts:
