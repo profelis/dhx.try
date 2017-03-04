@@ -11,8 +11,9 @@ http://danielwestheide.com/blog/2012/12/26/the-neophytes-guide-to-scala-part-6-e
 
 # Usage:
 ```haxe
-import deep.dhx.Try.Macro.Try;   // macro magic
-using deep.dhx.TryTools;        // useful extensions
+import dhx.Try;
+import dhx.Try.Macro.Try;   // macro magic
+using dhx.Tries;        // useful extensions
 ...
 var tried:Try<Int> = Try(someUnsafeOperation(foo, bar));
 tried.LogFailure(); // trace exception or set define `debug_try`
