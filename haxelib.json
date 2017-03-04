@@ -4,9 +4,9 @@
     "license": "MIT",
     "tags": ["cross", "utils", "try", "catch"],
     "description": "Scala inspired Try operator",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "classPath": "src",
-    "releasenote": "first release",
+    "releasenote": "updated usage script",
     "contributors": [ "deep" ],
     "dependencies": {
         "thx.core" : ""
