@@ -1,0 +1,9 @@
+-cp src
+-cp test
+
+-lib thx.core
+-lib buddy
+-lib utest
+
+-main Tests
+--interp

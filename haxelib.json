@@ -1,0 +1,12 @@
+{
+    "name": "escape",
+    "url" : "https://github.com/profelis/dhx.try",
+    "license": "MIT",
+    "tags": ["cross", "utils", "try", "catch"],
+    "description": "Scala inspired Try operator",
+    "version": "0.0.1",
+    "classPath": "src",
+    "releasenote": "first release",
+    "contributors": [ "deep" ],
+    "dependencies": {}
+}
