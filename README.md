@@ -28,5 +28,12 @@ import dhx.Try.Macro.Try;
 using dhx.Tries;
 ```
 
+# Void
+
+`Try<Void>` is not supported, instead of `Void` library use `thx.Nil` type from `thx.core` haxe library.
+```haxe
+var tried = Try(voidMethod()); // Try.Success(thx.Nil.nil);
+```
+
 # Debug
 - define `debug_try` - turn on exceptions log

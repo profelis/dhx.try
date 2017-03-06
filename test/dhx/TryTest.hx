@@ -5,6 +5,7 @@ import dhx.Try;
 import dhx.Try.Macro.Try;
 import haxe.ds.Either;
 import utest.Assert;
+import thx.Nil;
 
 using dhx.Tries;
 using buddy.Should;
@@ -32,7 +33,6 @@ class TryTest extends BuddySuite {
                 t.orElse(function () return Try(10)).get().should.be(10);
                 t.recover(function (v) return 10).get().should.be(10);
                 t.recoverWith(10).get().should.be(10);
-
                 t.toOption().should.equal(haxe.ds.Option.None);
                 t.iterator().hasNext().should.be(false);
                 t.toEither().should.equal(Right("1"));
@@ -59,10 +59,36 @@ class TryTest extends BuddySuite {
                 t.orElse(function () return Try(10)).get().should.be(1);
                 t.recover(function (v) return 10).get().should.be(1);
                 t.recoverWith(10).get().should.be(1);
-
                 t.toOption().should.equal(haxe.ds.Option.Some(1));
                 [for (i in t.iterator()) i].should.containExactly([1]);
                 t.toEither().should.equal(Left(1));
+            });
+
+            it("Try should hold void value too", {
+                function void():Void {}
+                var t = Try(void());
+                switch (t) {
+                    case Success(_):
+                    case Failure(_): Assert.fail("try should be succed");
+                }
+                t.failed().should.be(false);
+                t.success().should.be(true);
+                Assert.isNull(t.filter(function (v) return false).get());
+                t.flatMap(function (v) return Try(v)).get().should.equal(nil);
+                t.map(function (v) return v).get().should.equal(nil);
+                t.transform(function (v) return v, function (d) return nil).get().should.equal(nil);
+                t.fold(function (v) return v, function (d) return nil).should.equal(nil);
+                var foreachCalled = false;
+                t.foreach(function (v) { foreachCalled = true; v.should.equal(nil); });
+                foreachCalled.should.be(true);
+                t.get().should.equal(nil);
+                t.getOrElse(function () return nil).should.equal(nil);
+                t.orElse(function () return Try(nil)).get().should.equal(nil);
+                t.recover(function (v) return nil).get().should.equal(nil);
+                t.recoverWith(nil).get().should.equal(nil);
+                t.toOption().should.equal(haxe.ds.Option.Some(nil));
+                [for (i in t.iterator()) i].should.containExactly([nil]);
+                t.toEither().should.equal(Left(nil));
             });
 
         });
