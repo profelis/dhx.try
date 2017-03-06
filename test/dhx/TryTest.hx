@@ -3,6 +3,7 @@ package dhx;
 import buddy.BuddySuite;
 import dhx.Try;
 import dhx.Try.Macro.Try;
+import haxe.ds.Either;
 import utest.Assert;
 
 using dhx.Tries;
@@ -34,9 +35,7 @@ class TryTest extends BuddySuite {
 
                 t.toOption().should.equal(haxe.ds.Option.None);
                 t.iterator().hasNext().should.be(false);
-                #if thx_core
-                t.toEither().should.equal(thx.Either.Right("1"));
-                #end
+                t.toEither().should.equal(Right("1"));
             });
 
             it("Try should hold value", {
@@ -63,9 +62,7 @@ class TryTest extends BuddySuite {
 
                 t.toOption().should.equal(haxe.ds.Option.Some(1));
                 [for (i in t.iterator()) i].should.containExactly([1]);
-                #if thx_core
-                t.toEither().should.equal(thx.Either.Left(1));
-                #end
+                t.toEither().should.equal(Left(1));
             });
 
         });

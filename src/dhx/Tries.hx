@@ -2,6 +2,7 @@ package dhx;
 
 import dhx.Try.Macro.Try;
 import haxe.ds.Option;
+import haxe.ds.Either;
 
 class Tries {
 
@@ -101,14 +102,12 @@ class Tries {
         }
     }
 
-#if thx_core
-    inline public static function toEither<T>(t:Try<T>):thx.Either<T, Dynamic> {
+    inline public static function toEither<T>(t:Try<T>):Either<T, Dynamic> {
         return switch t {
-            case Success(v): thx.Either.Left(v);
-            case Failure(e): thx.Either.Right(e);
+            case Success(v): Left(v);
+            case Failure(e): Right(e);
         }
     }
-#end
 
     inline public static function LogFailure<T>(t:Try<T>):Try<T> {
         switch t {
