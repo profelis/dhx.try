@@ -4,9 +4,9 @@
     "license": "MIT",
     "tags": ["cross", "utils", "try", "catch"],
     "description": "Scala inspired Try operator",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "classPath": "src",
-    "releasenote": "add license file",
+    "releasenote": "use haxe.ds.Either",
     "contributors": [ "deep" ],
     "dependencies": {
         "thx.core" : ""
