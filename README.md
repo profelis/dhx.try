@@ -30,7 +30,7 @@ using dhx.Tries;
 
 # Void
 
-`Try<Void>` is not supported, instead of `Void` library use `thx.Nil` type from `thx.core` haxe library.
+`Try<Void>` is not supported, instead of `Void` use `thx.Nil` type from `thx.core` haxe library.
 ```haxe
 var tried = Try(voidMethod()); // Try.Success(thx.Nil.nil);
 ```
